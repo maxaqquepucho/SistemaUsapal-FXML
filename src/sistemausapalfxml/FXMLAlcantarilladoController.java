@@ -29,7 +29,7 @@ public class FXMLAlcantarilladoController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        System.out.println("probando para git gub");
     }    
     
 }

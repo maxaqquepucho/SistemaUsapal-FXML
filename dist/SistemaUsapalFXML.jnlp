@@ -8,7 +8,7 @@
     <update check="always"/>
     <resources>
         <j2se version="9.0.4+" href="http://java.sun.com/products/autodl/j2se"/>
-        <jar href="SistemaUsapalFXML.jar" size="2734" download="eager"/>
+        <jar href="SistemaUsapalFXML.jar" size="2766" download="eager"/>
     </resources>
     <jfx:javafx-desc width="800" height="600" main-class="sistemausapalfxml.SistemaUsapalFXML" name="SistemaUsapalFXML"/>
 </jnlp>
