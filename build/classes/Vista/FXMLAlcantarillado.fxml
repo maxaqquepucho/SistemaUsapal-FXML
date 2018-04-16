@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1200.0" styleClass="mainFxmlClass" stylesheets="/Vista/@fxmlalcantarillado.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.FXMLAlcantarilladoController">
+   <children>
+      <SplitPane dividerPositions="0.3096828046744574" layoutX="148.0" layoutY="95.0" prefHeight="650.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane maxWidth="368.0" minHeight="0.0" minWidth="368.0" prefHeight="648.0" prefWidth="368.0" style="-fx-background-color: white;">
+               <children>
+                  <TextArea fx:id="textDescripcion" layoutX="14.0" layoutY="474.0" prefHeight="71.0" prefWidth="342.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextArea>
+                  <GridPane layoutX="20.0" layoutY="94.0" prefHeight="301.0" prefWidth="336.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="107.0" />
+                      <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="247.0" minWidth="0.0" prefWidth="247.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <JFXTextField fx:id="textExpediente" prefHeight="30.0" prefWidth="237.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="14.0" />
+                           </font></JFXTextField>
+                        <JFXTextField fx:id="textCodigoCat" prefHeight="30.0" prefWidth="237.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="14.0" />
+                           </font></JFXTextField>
+                        <JFXTextField fx:id="textDireccion" prefHeight="25.0" prefWidth="237.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="14.0" />
+                           </font></JFXTextField>
+                        <JFXTextField fx:id="textNombre" prefHeight="25.0" prefWidth="237.0" GridPane.columnIndex="1">
+                           <font>
+                              <Font size="14.0" />
+                           </font></JFXTextField>
+                        <Label prefHeight="31.0" prefWidth="127.0" text="Nombre">
+                           <font>
+                              <Font size="13.0" />
+                           </font></Label>
+                        <Label prefHeight="31.0" prefWidth="95.0" text="Expediente" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="13.0" />
+                           </font></Label>
+                        <Label prefHeight="31.0" prefWidth="127.0" text="Código Catastral" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="13.0" />
+                           </font></Label>
+                        <Label prefHeight="31.0" prefWidth="127.0" text="Dirección" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="13.0" />
+                           </font></Label>
+                        <Label prefHeight="31.0" prefWidth="127.0" text="Urbanización" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="13.0" />
+                           </font></Label>
+                        <Label text="DNI" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="13.0" />
+                           </font></Label>
+                        <Label prefHeight="17.0" prefWidth="45.0" text="Fecha" GridPane.rowIndex="6">
+                           <font>
+                              <Font size="13.0" />
+                           </font></Label>
+                        <JFXDatePicker fx:id="datePickerFecha" prefHeight="28.0" prefWidth="209.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <JFXTextField fx:id="textDNI" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <ComboBox fx:id="cmbUrbanizaciones" prefHeight="25.0" prefWidth="235.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                     </children>
+                  </GridPane>
+                  <HBox alignment="CENTER" fillHeight="false" layoutX="13.0" layoutY="395.0" prefHeight="47.0" prefWidth="119.0" spacing="5.0">
+                     <children>
+                        <Label prefHeight="28.0" prefWidth="59.0" text="Manzana">
+                           <font>
+                              <Font size="13.0" />
+                           </font></Label>
+                        <JFXTextField fx:id="textManzana" prefHeight="25.0" prefWidth="42.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
+                  <HBox alignment="CENTER" fillHeight="false" layoutX="197.0" layoutY="395.0" prefHeight="47.0" prefWidth="119.0" spacing="5.0">
+                     <children>
+                        <Label prefHeight="28.0" prefWidth="32.0" text="Lote:">
+                           <font>
+                              <Font size="13.0" />
+                           </font></Label>
+                        <JFXTextField fx:id="textLote" prefHeight="25.0" prefWidth="42.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
+                  <Label layoutX="20.0" layoutY="38.0" prefHeight="31.0" prefWidth="135.0" text="Proyecto">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Label>
+                  <Label layoutX="17.0" layoutY="442.0" prefHeight="28.0" prefWidth="142.0" text="Descripción">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Label>
+                  <Label layoutX="17.0" layoutY="553.0" prefHeight="28.0" prefWidth="75.0" text="Autorización">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Label>
+                  <HBox layoutX="4.0" layoutY="587.0" prefHeight="47.0" prefWidth="360.0">
+                     <children>
+                        <JFXButton fx:id="botonAgregar" buttonType="RAISED" onAction="#guardarRegistro" prefHeight="47.0" prefWidth="86.0" style="-fx-background-color: #ffc107;" text="Agregar" textFill="#4d4c4c">
+                           <font>
+                              <Font size="13.0" />
+                           </font></JFXButton>
+                        <JFXButton fx:id="botonEditar" buttonType="RAISED" onAction="#editarRegistro" prefHeight="47.0" prefWidth="86.0" style="-fx-background-color: #dc3545;" text="Editar" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font></JFXButton>
+                        <JFXButton fx:id="botonEliminar" buttonType="RAISED" onAction="#eliminarRegistro" prefHeight="49.0" prefWidth="97.0" style="-fx-background-color: #28a745;" text="Eliminar" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font></JFXButton>
+                        <JFXButton fx:id="botonLimpiar" buttonType="RAISED" onAction="#limpiarComponentes" prefHeight="47.0" prefWidth="88.0" style="-fx-background-color: #343a40;" text="Limpiar" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font></JFXButton>
+                     </children>
+                  </HBox>
+                  <Label fx:id="labelCodPermiso" alignment="CENTER" layoutX="84.0" prefHeight="40.0" prefWidth="202.0" text="0001">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cmbProyectos" layoutX="20.0" layoutY="69.0" prefHeight="25.0" prefWidth="336.0" />
+                  <ComboBox fx:id="cmbAutorizacionProcesos" layoutX="92.0" layoutY="555.0" prefWidth="150.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="648.0" prefWidth="368.0" style="-fx-background-color: white;">
+               <children>
+                  <SplitPane dividerPositions="0.06811145510835913, 0.9365325077399381" orientation="VERTICAL" prefHeight="648.0" prefWidth="824.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane maxHeight="50.0" minHeight="50.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: white;">
+                           <children>
+                              <Label layoutX="14.0" layoutY="17.0" prefHeight="25.0" prefWidth="32.0" text="Año">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="cmbAño" layoutX="46.0" layoutY="17.0" onAction="#itemClick" prefHeight="25.0" prefWidth="88.0" />
+                              <JFXButton fx:id="botonFiltrar" layoutX="141.0" layoutY="17.0" onAction="#filtrarComboYear" style="-fx-background-color: #343a40;" text="Filtrar" textFill="WHITE" />
+                              <JFXTextField fx:id="textBuscar" focusColor="#22a122" labelFloat="true" layoutX="215.0" layoutY="15.0" prefHeight="30.0" prefWidth="278.0" promptText="Buscar...">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </JFXTextField>
+                           </children></AnchorPane>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <TableView fx:id="tablaAlcantarillado" prefHeight="648.0" prefWidth="824.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn fx:id="columnaCodigoPermiso" prefWidth="143.0" sortType="DESCENDING" text="Número Autorización" />
+                                  <TableColumn fx:id="columnaProyecto" minWidth="7.0" prefWidth="151.0" sortType="DESCENDING" text="Proyecto" />
+                                    <TableColumn fx:id="columnaNombre" minWidth="7.0" prefWidth="151.0" sortType="DESCENDING" text="Nombre" />
+                                    <TableColumn fx:id="columnaExpediente" minWidth="7.0" prefWidth="151.0" sortType="DESCENDING" text="Expediente" />
+                                    <TableColumn fx:id="columnaCodigoCat" minWidth="7.0" prefWidth="151.0" sortType="DESCENDING" text="Código Catastral" />
+                                    <TableColumn fx:id="columnaDireccion" minWidth="7.0" prefWidth="151.0" sortType="DESCENDING" text="Direccion" />
+                                    <TableColumn fx:id="columnaUrbanizacion" minWidth="7.0" prefWidth="151.0" sortType="DESCENDING" text="Urbanización" />
+                                    <TableColumn fx:id="columnaDni" minWidth="7.0" prefWidth="151.0" sortType="DESCENDING" text="DNI" />
+                                    <TableColumn fx:id="columnaFecha" minWidth="7.0" prefWidth="151.0" sortType="DESCENDING" text="Fecha" />
+                                    <TableColumn fx:id="columnaManzana" minWidth="7.0" prefWidth="50.0" sortType="DESCENDING" text="Manzana" />
+                                    <TableColumn fx:id="columnaLote" minWidth="7.0" prefWidth="50.0" sortType="DESCENDING" text="Lote" />
+                                    <TableColumn fx:id="columnaDescripcion" minWidth="7.0" prefWidth="151.0" sortType="DESCENDING" text="Descripcion" />
+                                    <TableColumn fx:id="columnaAutorizacionProceso" minWidth="7.0" prefWidth="151.0" sortType="DESCENDING" text="Autorización" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane maxHeight="40.0" minHeight="40.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: white;" />
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

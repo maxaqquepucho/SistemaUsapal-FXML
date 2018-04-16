@@ -8,10 +8,10 @@
     <update check="always"/>
     <resources>
         <j2se version="9.0.4+" href="http://java.sun.com/products/autodl/j2se"/>
-        <jar href="SistemaUsapalFXML.jar" size="17585" download="eager"/>
+        <jar href="SistemaUsapalFXML.jar" size="32788" download="eager"/>
         <jar href="lib\jfoenix-9.0.1.jar" size="2143605" download="eager"/>
         <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="843090" download="eager"/>
     </resources>
-    <jfx:javafx-desc width="800" height="600" main-class="sistemausapalfxml.SistemaUsapalFXML" name="SistemaUsapalFXML"/>
+    <jfx:javafx-desc width="800" height="600" main-class="Controlador.SistemaUsapalFXML" name="SistemaUsapalFXML"/>
 </jnlp>
 
