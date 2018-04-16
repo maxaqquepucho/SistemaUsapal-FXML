@@ -13,6 +13,8 @@ import Modelo.Proyecto;
 import Modelo.Urbanizacion;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.sql.Date;
@@ -24,6 +26,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -33,6 +37,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 import javafx.util.converter.LocalDateStringConverter;
 
 /**
@@ -62,6 +68,8 @@ public class FXMLAlcantarilladoController implements Initializable {
     @FXML private JFXButton botonEditar;
     @FXML private JFXButton botonEliminar;
     @FXML private JFXButton botonLimpiar;
+    @FXML private StackPane stackPane01;
+
 
 
 
@@ -262,17 +270,33 @@ public class FXMLAlcantarilladoController implements Initializable {
         if (resultado == 1) {
             listaAlcantarilladoYear.set(tablaAlcantarillado.getSelectionModel().getSelectedIndex(),a);
             System.out.println(cmbAño.getSelectionModel().getSelectedIndex()+1);
-            Alert mensaje = new Alert(Alert.AlertType.INFORMATION);
+            /*Alert mensaje = new Alert(Alert.AlertType.INFORMATION);
             mensaje.setTitle("REGISTRO ACTUALIZADO");
-            mensaje.setContentText("El registro ha sido actualizado exitosamente");
+            mensaje.setContentText("El registro ha sido actualizado exitosamente\t\t"
+                    + " faltan registrar varios campos"
+                    + "\n asdfe ads aewfawef ");
             mensaje.setHeaderText("Resultados");
-            mensaje.show();
+            mensaje.show();*/
+            
+            JFXDialogLayout content = new JFXDialogLayout();
+            content.setHeading(new Text("REGISTRO EDITADO"));
+            content.setBody(new Text("El registro no se pudo actualizar satisfactoriamente"
+                    + " \nfaltan registrar varios campos"
+                    + "\nasdfe ads aewfawef"));
+            JFXDialog dialog = new JFXDialog(stackPane01, content, JFXDialog.DialogTransition.CENTER);
+            
+            JFXButton boton = new JFXButton("Esta bien");
+            boton.setOnAction((ActionEvent event) -> {
+                dialog.close();
+            });
             limpiarComponentes();
         }else {
             System.out.println("No se pudo editar el registro");
             Alert mensaje = new Alert(Alert.AlertType.ERROR);
             mensaje.setTitle("ERROR AL EDITAR");
-            mensaje.setContentText("El registro no se pudo actualizar satisfactoriamente");
+            mensaje.setContentText("El registro no se pudo actualizar satisfactoriamente\t\t"
+                    + " faltan registrar varios campos"
+                    + "\n asdfe ads aewfawef ");
             mensaje.setHeaderText("Resultados");
             mensaje.show();
         }

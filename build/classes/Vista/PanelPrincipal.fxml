@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <AnchorPane prefHeight="575.0" prefWidth="202.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox layoutX="14.0" layoutY="22.0" prefHeight="575.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <ImageView fitHeight="158.0" fitWidth="208.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/imagenes02.jpeg" />
+                           </image>
+                        </ImageView>
+                        <JFXButton buttonType="RAISED" prefHeight="51.0" prefWidth="208.0" style="-fx-background-color: #f4c242;" text="Agregar" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font></JFXButton>
+                        <JFXButton buttonType="RAISED" prefHeight="54.0" prefWidth="208.0" style="-fx-background-color: #24e296;" text="Eliminar" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font></JFXButton>
+                        <JFXButton buttonType="RAISED" prefHeight="60.0" prefWidth="208.0" style="-fx-background-color: #1872bc;" text="Configuracion" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font></JFXButton>
+                        <JFXButton buttonType="RAISED" prefHeight="62.0" prefWidth="208.0" style="-fx-background-color: #8800cc;" text="Usuarios" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font></JFXButton>
+                        <JFXButton prefHeight="64.0" prefWidth="208.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </left>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <SplitPane dividerPositions="0.30786516853932583, 0.6808988764044944" layoutX="70.0" layoutY="135.0" prefHeight="400.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="264.0" />
+                        <AnchorPane prefHeight="573.0" prefWidth="208.0" />
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+         </center>
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" style="-fx-text-fill: white;" text="Archivo">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                        <Menu mnemonicParsing="false" text="Edit">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Delete" />
+                           </items>
+                        </Menu>
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" style="-fx-text-inner-color: white;" text="Editar">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Ayuda">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

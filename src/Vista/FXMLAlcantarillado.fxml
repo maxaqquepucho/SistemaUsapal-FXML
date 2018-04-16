@@ -15,9 +15,10 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1200.0" styleClass="mainFxmlClass" stylesheets="/Vista/@fxmlalcantarillado.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.FXMLAlcantarilladoController">
+<AnchorPane id="AnchorPane" prefHeight="694.0" prefWidth="1200.0" styleClass="mainFxmlClass" stylesheets="/Vista/@fxmlalcantarillado.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.FXMLAlcantarilladoController">
    <children>
       <SplitPane dividerPositions="0.3096828046744574" layoutX="148.0" layoutY="95.0" prefHeight="650.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -138,19 +139,15 @@
                      </font></Label>
                   <HBox layoutX="4.0" layoutY="587.0" prefHeight="47.0" prefWidth="360.0">
                      <children>
-                        <JFXButton fx:id="botonAgregar" buttonType="RAISED" onAction="#guardarRegistro" prefHeight="47.0" prefWidth="86.0" style="-fx-background-color: #ffc107;" text="Agregar" textFill="#4d4c4c">
-                           <font>
-                              <Font size="13.0" />
-                           </font></JFXButton>
-                        <JFXButton fx:id="botonEditar" buttonType="RAISED" onAction="#editarRegistro" prefHeight="47.0" prefWidth="86.0" style="-fx-background-color: #dc3545;" text="Editar" textFill="WHITE">
-                           <font>
-                              <Font size="13.0" />
-                           </font></JFXButton>
                         <JFXButton fx:id="botonEliminar" buttonType="RAISED" onAction="#eliminarRegistro" prefHeight="49.0" prefWidth="97.0" style="-fx-background-color: #28a745;" text="Eliminar" textFill="WHITE">
                            <font>
                               <Font size="13.0" />
                            </font></JFXButton>
                         <JFXButton fx:id="botonLimpiar" buttonType="RAISED" onAction="#limpiarComponentes" prefHeight="47.0" prefWidth="88.0" style="-fx-background-color: #343a40;" text="Limpiar" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font></JFXButton>
+                        <JFXButton fx:id="botonEditar" buttonType="RAISED" onAction="#editarRegistro" prefHeight="47.0" prefWidth="86.0" style="-fx-background-color: #dc3545;" text="Editar" textFill="WHITE">
                            <font>
                               <Font size="13.0" />
                            </font></JFXButton>
@@ -163,6 +160,15 @@
                   </Label>
                   <ComboBox fx:id="cmbProyectos" layoutX="20.0" layoutY="69.0" prefHeight="25.0" prefWidth="336.0" />
                   <ComboBox fx:id="cmbAutorizacionProcesos" layoutX="92.0" layoutY="555.0" prefWidth="150.0" />
+                  <StackPane fx:id="stackPane01" layoutX="5.0" layoutY="634.0" prefHeight="50.0" prefWidth="98.0">
+                     <children>
+                        <JFXButton fx:id="botonAgregar" buttonType="RAISED" onAction="#guardarRegistro" prefHeight="47.0" prefWidth="86.0" style="-fx-background-color: #ffc107;" text="Agregar" textFill="#4d4c4c">
+                           <font>
+                              <Font size="13.0" />
+                           </font></JFXButton>
+                     </children>
+                  </StackPane>
+                  <StackPane layoutX="126.0" layoutY="634.0" prefHeight="50.0" prefWidth="95.0" />
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="648.0" prefWidth="368.0" style="-fx-background-color: white;">
