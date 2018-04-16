@@ -37,6 +37,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.util.converter.LocalDateStringConverter;
@@ -48,6 +49,7 @@ import javafx.util.converter.LocalDateStringConverter;
  */
 public class FXMLAlcantarilladoController implements Initializable {
     //Componetes GUI
+    @FXML private AnchorPane contenedorPrincipal;
     @FXML private Label labelCodPermiso;
     @FXML private JFXTextField textNombre;
     @FXML private JFXTextField textExpediente;
@@ -224,11 +226,27 @@ public class FXMLAlcantarilladoController implements Initializable {
 
             listaAlcantarilladoYear.add(a);
             //JDK 8u>40
-            Alert mensaje = new Alert(Alert.AlertType.INFORMATION);
+            /*Alert mensaje = new Alert(Alert.AlertType.INFORMATION);
             mensaje.setTitle("REGISTRO AGREGADO");
             mensaje.setContentText("El registro ha sido guardado exitosamente");
             mensaje.setHeaderText("Resultados");
-            mensaje.show();
+            mensaje.show();*/
+          
+            JFXDialogLayout content = new JFXDialogLayout();
+            content.setHeading(new Text("REGISTRO EDITADO"));
+            content.setBody(new Text("El registro se pudo actualizar satisfactoriamente"
+                    + " \nfaltan registrar varios campos"
+                    + "\nasdfe ads aewfawef"));
+            JFXDialog dialog = new JFXDialog(stackPane01, content, JFXDialog.DialogTransition.TOP);
+            
+            JFXButton boton = new JFXButton("Esta bien");
+            boton.setOnAction((ActionEvent event) -> {
+                dialog.close();
+            }); 
+            content.setActions(boton);
+            dialog.show();
+            
+            
             limpiarComponentes();
         }else {
             System.out.println("No se pudo editar el registro");
@@ -280,16 +298,27 @@ public class FXMLAlcantarilladoController implements Initializable {
             
             JFXDialogLayout content = new JFXDialogLayout();
             content.setHeading(new Text("REGISTRO EDITADO"));
-            content.setBody(new Text("El registro no se pudo actualizar satisfactoriamente"
+            content.setBody(new Text("El registro se pudo actualizar satisfactoriamente"
+                    + " \nfaltan registrar varios campos"
+                    + "\nasdfe ads aewfawef"
+                    + " \nfaltan registrar varios campos"
+                    + "\nasdfe ads aewfawef"
+                    + " \nfaltan registrar varios campos"
+                    + "\nasdfe ads aewfawef"
                     + " \nfaltan registrar varios campos"
                     + "\nasdfe ads aewfawef"));
-            JFXDialog dialog = new JFXDialog(stackPane01, content, JFXDialog.DialogTransition.CENTER);
+            JFXDialog dialog = new JFXDialog(stackPane01, content, JFXDialog.DialogTransition.LEFT);
             
             JFXButton boton = new JFXButton("Esta bien");
+            JFXButton boton2 = new JFXButton("Calcelar");
             boton.setOnAction((ActionEvent event) -> {
                 dialog.close();
-            });
-            limpiarComponentes();
+                limpiarComponentes();
+            }); 
+            content.setActions(boton,boton2);
+            
+            dialog.show();
+            
         }else {
             System.out.println("No se pudo editar el registro");
             Alert mensaje = new Alert(Alert.AlertType.ERROR);
