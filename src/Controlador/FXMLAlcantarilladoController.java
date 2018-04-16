@@ -62,9 +62,9 @@ public class FXMLAlcantarilladoController implements Initializable {
     @FXML private JFXButton botonEditar;
     @FXML private JFXButton botonEliminar;
     @FXML private JFXButton botonLimpiar;
-    
-    
-    
+
+
+
     //Columnas de la tablaAlcantarillado
     @FXML private TableColumn<Alcantarillado, Number> columnaCodigoPermiso;
     @FXML private TableColumn<Alcantarillado, Proyecto> columnaProyecto;
@@ -79,9 +79,9 @@ public class FXMLAlcantarilladoController implements Initializable {
     @FXML private TableColumn<Alcantarillado, String> columnaLote;
     @FXML private TableColumn<Alcantarillado, String> columnaDescripcion;
     @FXML private TableColumn<Alcantarillado, Autorizacion_Proceso> columnaAutorizacionProceso;
-    
-    
-    
+
+
+
     //Colecciones
     private ObservableList<Urbanizacion> listaUrbanizaciones;
     private ObservableList<Proyecto> listaProyectos;
@@ -93,15 +93,15 @@ public class FXMLAlcantarilladoController implements Initializable {
     int clickComboBox = 0;
     FilteredList<Alcantarillado> filtrarDatos;
     SortedList<Alcantarillado> ordenandoDatos;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         conexion = new Conexion();
         conexion.establecerConexion();
-        
+
         datePickerFecha.setConverter(new LocalDateStringConverter(FormatStyle.FULL));
-        
+
         //Inicializar Listas
         listaUrbanizaciones = FXCollections.observableArrayList();
         listaProyectos = FXCollections.observableArrayList();
@@ -115,17 +115,17 @@ public class FXMLAlcantarilladoController implements Initializable {
         Autorizacion_Proceso.llenarInformacion(conexion.getConnection(), listaAutorizaciones);
         Año.llenarInformacion(conexion.getConnection(), listaAños);
         Alcantarillado.llenarInformacion(conexion.getConnection(), listaAlcantarillado);
-    
+
         //Enlazar listas ComboBox
         cmbUrbanizaciones.setItems(listaUrbanizaciones);
         cmbProyectos.setItems(listaProyectos);
         cmbAutorizacionProcesos.setItems(listaAutorizaciones);
         cmbAño.setItems(listaAños);
         tablaAlcantarillado.setItems(listaAlcantarillado);
-        
+
         //Enlazar ComboBox para que sea autocompletable
         ComboBoxAutoComplete<Urbanizacion> comboBoxAutoComplete = new ComboBoxAutoComplete<>(cmbUrbanizaciones);
-        
+
         //Enlazar columnas con atributos
         columnaCodigoPermiso.setCellValueFactory(new PropertyValueFactory<> ("cod_permiso"));
         columnaProyecto.setCellValueFactory(new PropertyValueFactory<>("proyecto"));
@@ -141,16 +141,16 @@ public class FXMLAlcantarilladoController implements Initializable {
         columnaDescripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
         columnaAutorizacionProceso.setCellValueFactory(new PropertyValueFactory<>("Autorizacion_proceso"));
         gestionarEventos();
-            
+
         buscarElementos();
-        
+
         filtrarDatos = new FilteredList<>(listaAlcantarillado,p -> true);
             ordenandoDatos = new SortedList<>(filtrarDatos);
             ordenandoDatos.comparatorProperty().bind(tablaAlcantarillado.comparatorProperty());
             tablaAlcantarillado.setItems(ordenandoDatos);
         conexion.cerrarConexion();
     }
-    
+
     public void gestionarEventos(){
         clickComboBox = 1;
         tablaAlcantarillado.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Alcantarillado>() {
@@ -172,11 +172,11 @@ public class FXMLAlcantarilladoController implements Initializable {
                     textDescripcion.setText(valorSeleccionado.getDescripcion());
                     cmbAutorizacionProcesos.setValue(valorSeleccionado.getAutorizacion_proceso());
                     cmbAño.setValue(valorSeleccionado.getAño());
-                    
+
                     botonAgregar.setDisable(true);
                     botonEditar.setDisable(false);
                     botonEliminar.setDisable(false);
-                    
+
                 }else{
                     System.out.println("Seleccione una fila");
                 }
@@ -187,33 +187,33 @@ public class FXMLAlcantarilladoController implements Initializable {
     @FXML
     public void guardarRegistro(){
         conexion.establecerConexion();
-        
-        
+
+
         Alcantarillado a = new Alcantarillado(
         // estas dos lineas de codigo son el primer parametro de constructor Alcantarillado.
                       /**/  Alcantarillado.codigoPermiso(conexion.getConnection(),     /**/
-                      /**/  cmbAño.getSelectionModel().getSelectedItem().toString()),  /**/ 
-                cmbAño.getSelectionModel().getSelectedItem(), 
-                0, 
-                cmbProyectos.getSelectionModel().getSelectedItem(), 
-                textNombre.getText(), 
-                textExpediente.getText(), 
-                textCodigoCat.getText(), 
-                textDireccion.getText(), 
-                cmbUrbanizaciones.getSelectionModel().getSelectedItem(), 
-                textDNI.getText(), 
-                Date.valueOf(datePickerFecha.getValue()), 
-                textManzana.getText(), 
-                textLote.getText(), 
-                tiempoVigenciaFecha(), 
-                textDescripcion.getText(), 
+                      /**/  cmbAño.getSelectionModel().getSelectedItem().toString()),  /**/
+                cmbAño.getSelectionModel().getSelectedItem(),
+                0,
+                cmbProyectos.getSelectionModel().getSelectedItem(),
+                textNombre.getText(),
+                textExpediente.getText(),
+                textCodigoCat.getText(),
+                textDireccion.getText(),
+                cmbUrbanizaciones.getSelectionModel().getSelectedItem(),
+                textDNI.getText(),
+                Date.valueOf(datePickerFecha.getValue()),
+                textManzana.getText(),
+                textLote.getText(),
+                tiempoVigenciaFecha(),
+                textDescripcion.getText(),
                 cmbAutorizacionProcesos.getSelectionModel().getSelectedItem()
         );
-        
+
         int resultado = a.guargarRegistro(conexion.getConnection());
         if (resultado == 1) {
             System.out.println("Se guardo Exitosamente el registro");
-            
+
             listaAlcantarilladoYear.add(a);
             //JDK 8u>40
             Alert mensaje = new Alert(Alert.AlertType.INFORMATION);
@@ -232,25 +232,25 @@ public class FXMLAlcantarilladoController implements Initializable {
         }
         conexion.cerrarConexion();
     }
-    
+
     @FXML
     public void editarRegistro(){
         Alcantarillado a = new Alcantarillado(
-                labelCodPermiso.getText(), 
-                cmbAño.getSelectionModel().getSelectedItem(), 
-                0, 
-                cmbProyectos.getSelectionModel().getSelectedItem(), 
-                textNombre.getText(), 
-                textExpediente.getText(), 
-                textCodigoCat.getText(), 
-                textDireccion.getText(), 
-                cmbUrbanizaciones.getSelectionModel().getSelectedItem(), 
-                textDNI.getText(), 
-                Date.valueOf(datePickerFecha.getValue()), 
-                textManzana.getText(), 
-                textLote.getText(), 
-                tiempoVigenciaFecha(), 
-                textDescripcion.getText(), 
+                labelCodPermiso.getText(),
+                cmbAño.getSelectionModel().getSelectedItem(),
+                0,
+                cmbProyectos.getSelectionModel().getSelectedItem(),
+                textNombre.getText(),
+                textExpediente.getText(),
+                textCodigoCat.getText(),
+                textDireccion.getText(),
+                cmbUrbanizaciones.getSelectionModel().getSelectedItem(),
+                textDNI.getText(),
+                Date.valueOf(datePickerFecha.getValue()),
+                textManzana.getText(),
+                textLote.getText(),
+                tiempoVigenciaFecha(),
+                textDescripcion.getText(),
                 cmbAutorizacionProcesos.getSelectionModel().getSelectedItem()
         );
         conexion.establecerConexion();
@@ -258,7 +258,7 @@ public class FXMLAlcantarilladoController implements Initializable {
                                           labelCodPermiso.getText(),
                                           cmbAño.getSelectionModel().getSelectedItem().toString()
                                         );
-        
+
         if (resultado == 1) {
             listaAlcantarilladoYear.set(tablaAlcantarillado.getSelectionModel().getSelectedIndex(),a);
             System.out.println(cmbAño.getSelectionModel().getSelectedIndex()+1);
@@ -278,12 +278,12 @@ public class FXMLAlcantarilladoController implements Initializable {
         }
         conexion.cerrarConexion();
     }
-    
+
     @FXML
     public void eliminarRegistro(){
         conexion.establecerConexion();
         int resultado = tablaAlcantarillado.getSelectionModel().getSelectedItem().eliminarRegistro(
-                                                                                    conexion.getConnection(), 
+                                                                                    conexion.getConnection(),
                                                                                     labelCodPermiso.getText(),
                                                                                     cmbAño.getSelectionModel().getSelectedItem().toString()
                                                                                     );
@@ -306,18 +306,18 @@ public class FXMLAlcantarilladoController implements Initializable {
             mensaje.show();
         }
     }
-    
-    
+
+
     public String tiempoVigenciaFecha(){
         int year;
         String month;
         int mes;
         String mensaje = "";
-        
+
         year = datePickerFecha.getValue().getYear();
         mes = datePickerFecha.getValue().getMonthValue();
        // DayOfWeek day = datePickerFecha.getValue().getDayOfWeek();
-      
+
         switch(mes)
         {
                 case 1: month = "junio";
@@ -350,10 +350,10 @@ public class FXMLAlcantarilladoController implements Initializable {
                         year++;
                          mensaje = "Autorización Vigente hasta "+month+" del "+ year; break;
         }
-        
+
         return mensaje;
     }
-    
+
     @FXML
     public void filtrarComboYear(){
             listaAlcantarilladoYear.removeAll(tablaAlcantarillado.getItems());
@@ -361,22 +361,22 @@ public class FXMLAlcantarilladoController implements Initializable {
             System.out.println("Item clicked");
             //llenando informacion por cada anio
             conexion.establecerConexion();
-            Alcantarillado.llenarInformacionYear(conexion.getConnection(), 
-                                                listaAlcantarilladoYear, 
+            Alcantarillado.llenarInformacionYear(conexion.getConnection(),
+                                                listaAlcantarilladoYear,
                                                 cmbAño.getSelectionModel().getSelectedItem().toString()
                 );
-                
+
             tablaAlcantarillado.setItems(listaAlcantarilladoYear);
-            
+
             filtrarDatos = new FilteredList<>(listaAlcantarilladoYear,p -> true);
             ordenandoDatos = new SortedList<>(filtrarDatos);
             ordenandoDatos.comparatorProperty().bind(tablaAlcantarillado.comparatorProperty());
             tablaAlcantarillado.setItems(ordenandoDatos);
             conexion.cerrarConexion();
-            
-            
+
+
     }
-    
+
     public void buscarElementos(){
         textBuscar.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
             filtrarDatos.setPredicate((Alcantarillado personas) ->{
@@ -384,15 +384,15 @@ public class FXMLAlcantarilladoController implements Initializable {
                     return true;
                 }
                 String name = personas.getNombre().toLowerCase();
-                
+
                 return name.contains(newValue.toLowerCase());
-                
+
             });
         });
-        
-        
+
+
     }
-    
+
     @FXML
     public void limpiarComponentes(){
         cmbProyectos.setValue(null);
@@ -407,44 +407,43 @@ public class FXMLAlcantarilladoController implements Initializable {
         textLote.setText(null);
         textDescripcion.setText(null);
         cmbAutorizacionProcesos.setValue(null);
-        
+
         //Botones
         botonAgregar.setDisable(false);
         botonEditar.setDisable(true);
         botonEliminar.setDisable(true);
     }
-    
-    
-    @FXML 
+
+
+    @FXML
     public void itemClick(){
         /*cmbAño.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                
+
             }
         });*/
-        
+
         /*
         if (clickComboBox == 1) {
             clickComboBox = 0;
-            
+
         } else if (clickComboBox == 0) {
             tablaAlcantarillado.getItems().clear();
             System.out.println("item " + cmbAño.getSelectionModel().getSelectedItem().toString());
             System.out.println("Item clicked");
             //llenando informacion por cada anio
-            Alcantarillado.llenarInformacionYear(conexion.getConnection(), 
-                                                listaAlcantarilladoYear, 
+            Alcantarillado.llenarInformacionYear(conexion.getConnection(),
+                                                listaAlcantarilladoYear,
                                                 cmbAño.getSelectionModel().getSelectedItem().toString()
                 );
-                
+
                 tablaAlcantarillado.setItems(listaAlcantarilladoYear);
                 cmbAño.setEditable(false);
         }
-        
-        
+
+
                         //gestionarEventos();*/
-                        
+
     }
 }
-
