@@ -1,6 +1,6 @@
 # SistemaUsapal-FXML un agradecimiento a todos
- estoy haciendo experimentos con gitbub .. pero parece que todo esta funcionando
+ Estoy desarrollando en JavaFX y todo esta funcionando ok.
 
-justo ahora estoy editando en atom
-se ha cambiando una libreria de java exitosamente.
-ahora vamos a probar de una manera mas diferente :v
+Estoy desarrollando en el editor Atom,
+hey cambiando una libreria de java exitosamente.
+tiene un UI atractivo y trabaja con un base de datos Mysql.
