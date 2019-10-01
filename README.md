@@ -1,4 +1,4 @@
-# SistemaUsapal-FXML un agradecimiento a todos
+# SistemaUsapal-FXML
  Estoy desarrollando en JavaFX y todo esta funcionando ok.
 
 Estoy desarrollando en el editor Atom,
